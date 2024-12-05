@@ -19,4 +19,9 @@ public class ConcertRepository {
 			.map(ConcertEntity::toDomain)
 			.toList();
 	}
+
+	public Long save(Concert concert) {
+		ConcertEntity entity = concertJpaRepository.save(ConcertEntity.toEntity(concert));
+		return entity.getId();
+	}
 }

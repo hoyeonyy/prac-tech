@@ -9,9 +9,8 @@ import prac.javaconcert.concert.domain.Genre;
 import prac.javaconcert.concert.domain.Place;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-public class ConcertPreview {
+public class ConcertDetailResponse {
 
     private String name;
 
@@ -35,7 +34,7 @@ public class ConcertPreview {
     private Genre genre;
 
     @Builder
-    private ConcertPreview(String name, String poster, Place place, String period, Integer runningTime, String ageLimit, Genre genre) {
+    private ConcertDetailResponse(String name, String poster, Place place, String period, Integer runningTime, String ageLimit, Genre genre) {
         this.name = name;
         this.poster = poster;
         this.place = place;
@@ -45,8 +44,8 @@ public class ConcertPreview {
         this.genre = genre;
     }
 
-    public static ConcertPreview of(Concert concert){
-        return ConcertPreview.builder()
+    public static ConcertDetailResponse of(Concert concert){
+        return ConcertDetailResponse.builder()
                 .name(concert.getName())
                 .poster(concert.getPoster())
                 .place(concert.getPlace())

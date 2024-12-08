@@ -43,4 +43,13 @@ public class Concert {
     // 콘서트 정보
     private String description;
 
+    public Concert(String name, String poster, String period, Integer runningTime, String ageLimit, Genre genre, String description) {
+        this.name = name;
+        this.poster = poster;
+        this.period = period;
+        this.runningTime = runningTime;
+        this.ageLimit = ageLimit;
+        this.genre = genre;
+        this.description = description;
+    }
 }

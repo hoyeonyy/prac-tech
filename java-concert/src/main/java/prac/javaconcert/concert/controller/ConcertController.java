@@ -1,10 +1,10 @@
 package prac.javaconcert.concert.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import prac.javaconcert.concert.response.ConcertPreview;
+import org.springframework.web.bind.annotation.*;
+import prac.javaconcert.concert.request.ConcertSaveRequest;
+import prac.javaconcert.concert.response.ConcertDetailResponse;
+import prac.javaconcert.concert.response.ConcertPreviewResponse;
 import prac.javaconcert.concert.service.ConcertService;
 
 import java.util.List;
@@ -17,7 +17,12 @@ public class ConcertController {
     private final ConcertService concertService;
 
     @GetMapping
-    public List<ConcertPreview> findAll(){
+    public List<ConcertPreviewResponse> findAll(){
         return concertService.findAll();
+    }
+
+    @PostMapping
+    public ConcertDetailResponse save(@RequestBody ConcertSaveRequest concertSaveRequest){
+        return concertService.save(concertSaveRequest);
     }
 }

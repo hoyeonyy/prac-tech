@@ -15,6 +15,8 @@ public class Place {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @Enumerated(EnumType.STRING)
     private Region region;
 
     private String location;
@@ -22,4 +24,10 @@ public class Place {
     @OneToOne
     @JoinColumn(name = "concert_id")
     private Concert concert;
+
+    public Place(Region region, String location, Concert concert) {
+        this.region = region;
+        this.location = location;
+        this.concert = concert;
+    }
 }

@@ -10,11 +10,11 @@ import java.time.LocalDate
 
 @Entity
 class ConcertEntity(
-    private var title: String,
-    private var location: String,
-    private var startAt: LocalDate,
-    private var endAt: LocalDate,
-    private var tag: Tag
+    var title: String,
+    var location: String,
+    var startAt: LocalDate,
+    var endAt: LocalDate,
+    var tag: Tag
 ) {
 
     @Id

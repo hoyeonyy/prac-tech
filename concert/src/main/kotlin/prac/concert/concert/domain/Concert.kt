@@ -1,8 +1,13 @@
 package prac.concert.concert.domain
 
+import java.time.LocalDate
 
-class Concert (
-    val image
-){
-    val image
+class Concert(
+    var title: String,
+    var location: String,
+    var startAt: LocalDate,
+    var endAt: LocalDate,
+    var tag: Tag
+) {
+
 }

@@ -21,14 +21,6 @@ class ConcertEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0
 
-    protected constructor() : this(
-        title = "",
-        location = "",
-        startAt = LocalDate.now(),
-        endAt = LocalDate.now(),
-        tag = Tag.JAZZ
-    )
-
     companion object {
         fun toEntity(concert: Concert): ConcertEntity{
             return ConcertEntity(

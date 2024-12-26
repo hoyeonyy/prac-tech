@@ -14,6 +14,12 @@ class ConcertRepository(
             .map { entity -> entity.toDomain() }
     }
 
+    fun findById(id : Long) : Concert{
+        return concertJpaRepository.findById(id)
+            .orElseThrow{ IllegalArgumentException("id가 없습니다.") }
+            .toDomain()
+    }
+
     fun save(concert: Concert): Long{
         val entity = concertJpaRepository.save(ConcertEntity.toEntity(concert))
         return entity.id;

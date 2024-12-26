@@ -9,18 +9,22 @@ import prac.concert.concert.presentation.response.ConcertResponse
 
 @Service
 class ConcertService(
-    private val concertRepository: ConcertRepository
+        private val concertRepository: ConcertRepository
 ) {
 
-    fun findAll(): AllConcertResponse{
+    fun findAll(): AllConcertResponse {
         val concertResponses = concertRepository.findAll()
-            .map { concert -> ConcertResponse.toResponse(concert) }
+                .map { concert -> ConcertResponse.toResponse(concert) }
 
         return AllConcertResponse(concertResponses)
     }
 
+    fun findById(id: Long): ConcertResponse {
+        return ConcertResponse.toResponse(concertRepository.findById(id))
+    }
+
     @Transactional
-    fun save(concertRequest: ConcertRequest): Long{
+    fun save(concertRequest: ConcertRequest): Long {
         return concertRepository.save(concertRequest.toDomain())
     }
 }

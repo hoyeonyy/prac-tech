@@ -32,4 +32,9 @@ class ConcertController(
         val concertId = concertService.save(concertRequest)
         return ResponseEntity.created(URI.create("/concert/${concertId}")).build()
     }
+
+    @GetMapping("/health")
+    fun checkHealth(): ResponseEntity<String> {
+        return ResponseEntity.ok("Success Health Check")
+    }
 }
